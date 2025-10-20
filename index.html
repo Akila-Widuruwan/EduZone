@@ -6,7 +6,7 @@
     <link rel="icon" type="image/png" href="https://i.postimg.cc/gJ1rTY1B/Gemini-Generated-Image-ou99oou99oou99oo.png">
     <title>EduZone LK - Learn Maths & Physics</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;500;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -40,21 +40,121 @@
             align-items: center;
             height: 80px;
         }
+        
+        /* NEW BEAUTIFUL LOGO WITH STUDY ICON AND SRI LANKAN FLAG */
         .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #3498db;
+            font-size: 2.1rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #3498db, #2ecc71, #f1c40f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
             text-decoration: none;
-            font-family: 'Roboto Slab', serif;
+            font-family: 'Montserrat', sans-serif;
+            text-shadow: 0 2px 10px rgba(52, 152, 219, 0.3);
+            letter-spacing: 0.5px;
+            position: relative;
+            padding: 5px 0;
         }
+
         .logo-icon {
             background: linear-gradient(135deg, #3498db, #2ecc71);
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .logo-icon i {
+            color: white;
+            font-size: 1.5rem;
+            z-index: 2;
+            position: relative;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.3) 50%, transparent 60%);
+            animation: shine 3s infinite linear;
+        }
+
+        .logo-icon:hover {
+            transform: rotate(5deg) scale(1.1);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.6);
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* White Study Icon in Middle */
+        .study-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.2rem;
+            color: white;
+            z-index: 3;
+        }
+
+        /* Correct Sri Lankan Flag */
+        .sri-lanka-flag {
+            display: inline-flex;
+            align-items: center;
+            margin-left: 10px;
+            position: relative;
+        }
+
+        .flag-base {
+            width: 40px;
+            height: 20px;
+            background: 
+                /* Maroon background */
+                linear-gradient(to right, #8D153A 0%, #8D153A 33%, #FFB700 33%, #FFB700 67%, #8D153A 67%, #8D153A 100%);
+            position: relative;
+            border-radius: 2px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .flag-border {
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            right: 1px;
+            bottom: 1px;
+            border: 1px solid #FFB700;
+            border-radius: 1px;
+        }
+
+        .flag-lion {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 8px;
+            background: #FFB700;
+            clip-path: polygon(
+                50% 0%, 55% 15%, 65% 15%, 58% 25%,
+                65% 35%, 55% 30%, 50% 40%, 45% 30%,
+                35% 35%, 42% 25%, 35% 15%, 45% 15%
+            );
         }
         
         /* MOBILE BUTTONS */
@@ -198,6 +298,12 @@
         .mobile-search-overlay.active {
             display: block;
         }
+        .mobile-search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
         .mobile-search-input {
             width: 100%;
             padding: 15px 20px;
@@ -206,6 +312,21 @@
             background: rgba(255, 255, 255, 0.1);
             color: white;
             font-size: 1.1rem;
+        }
+        .mobile-search-close {
+            background: rgba(231, 76, 60, 0.2);
+            border: 1px solid rgba(231, 76, 60, 0.3);
+            color: #e74c3c;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 12px 15px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+        .mobile-search-close:hover {
+            background: rgba(231, 76, 60, 0.4);
+            transform: scale(1.05);
         }
 
         /* MAIN CONTENT */
@@ -426,7 +547,7 @@
             color: #3498db;
         }
         
-        /* NEW VIDEO PLAYER MODAL */
+        /* FIXED VIDEO PLAYER MODAL */
         .video-player-modal {
             display: none;
             position: fixed;
@@ -498,12 +619,20 @@
         }
         .player-info {
             padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
         .player-description {
             color: #bdc3c7;
             line-height: 1.6;
             margin-bottom: 20px;
             font-size: 1rem;
+            min-height: 60px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border-left: 3px solid #3498db;
         }
         .player-meta {
             display: flex;
@@ -633,6 +762,22 @@
             .container {
                 padding: 1rem;
             }
+            
+            /* Mobile logo adjustments */
+            .logo {
+                font-size: 1.6rem;
+            }
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+            }
+            .sri-lanka-flag {
+                margin-left: 5px;
+            }
+            .flag-base {
+                width: 30px;
+                height: 15px;
+            }
         }
     </style>
 </head>
@@ -642,8 +787,15 @@
             <a href="#" class="logo" onclick="showHomePage()">
                 <div class="logo-icon">
                     <i class="fas fa-graduation-cap"></i>
+                    <div class="study-icon">📚</div>
                 </div>
-                EduZone LK
+                EduZone 
+                <span class="sri-lanka-flag">
+                    <div class="flag-base">
+                        <div class="flag-border"></div>
+                        <div class="flag-lion"></div>
+                    </div>
+                </span>
             </a>
             
             <!-- Desktop Navigation -->
@@ -686,7 +838,12 @@
 
     <!-- Mobile Search Overlay -->
     <div class="mobile-search-overlay" id="mobileSearchOverlay">
-        <input type="text" class="mobile-search-input" id="mobileSearchInput" placeholder="Search lessons...">
+        <div class="mobile-search-container">
+            <input type="text" class="mobile-search-input" id="mobileSearchInput" placeholder="Search lessons...">
+            <button class="mobile-search-close" id="mobileSearchClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
     </div>
 
     <!-- MAIN CONTENT -->
@@ -747,7 +904,7 @@
         </div>
     </div>
 
-    <!-- NEW VIDEO PLAYER MODAL -->
+    <!-- FIXED VIDEO PLAYER MODAL -->
     <div class="video-player-modal" id="videoPlayerModal">
         <div class="player-container">
             <div class="player-header">
@@ -807,9 +964,9 @@
             <div class="footer-section">
                 <h3>Contact Us</h3>
                 <ul class="footer-links">
-                    <li><i class="fas fa-envelope"></i> support@edustreampro.com</li>
-                    <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
-                    <li><i class="fas fa-map-marker-alt"></i> 123 Education Street, Learn City</li>
+                    <li><i class="fas fa-envelope"></i> support@eduzone.lk</li>
+                    <li><i class="fas fa-phone"></i> +94 77 123 4567</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</li>
                 </ul>
             </div>
         </div>
@@ -826,6 +983,7 @@
         console.log('🚀 EduZone LK - Loading educational content from Google Sheets');
 
         let allVideos = [];
+        let currentDisplayedVideos = [];
 
         // Mobile menu functions
         function toggleMobileMenu() {
@@ -837,8 +995,6 @@
             overlay.classList.toggle('active');
             // Close search if open
             searchOverlay.classList.remove('active');
-            
-            console.log('Mobile menu active:', overlay.classList.contains('active'));
         }
 
         function toggleMobileSearch() {
@@ -1072,11 +1228,19 @@
             `;
         }
 
-        // IMPROVED VIDEO PLAYER
+        // FIXED VIDEO PLAYER FUNCTION - Ensures description loads properly
         function playVideo(index) {
-            const video = allVideos[index];
-            if (!video) return;
+            console.log('🎬 Opening video player for index:', index);
             
+            // Get the video from currently displayed videos
+            const video = currentDisplayedVideos[index];
+            
+            if (!video) {
+                console.error('❌ Video not found');
+                return;
+            }
+
+            // Get all player elements
             const modal = document.getElementById('videoPlayerModal');
             const iframe = document.getElementById('playerIframe');
             const title = document.getElementById('playerTitle');
@@ -1084,22 +1248,37 @@
             const views = document.getElementById('playerViews');
             const duration = document.getElementById('playerDuration');
             const difficulty = document.getElementById('playerDifficulty');
-            
-            // Set video data
-            title.textContent = video.title;
-            description.textContent = video.description;
-            views.innerHTML = `<i class="fas fa-eye"></i> ${video.views}`;
-            duration.innerHTML = `<i class="fas fa-clock"></i> ${video.duration}`;
+
+            // FIX: Clear previous content and set new content
+            title.innerHTML = ''; // Clear first
+            title.textContent = video.title || 'Untitled Lesson';
+
+            description.innerHTML = ''; // Clear first
+            description.textContent = video.description || 'No description available';
+
+            views.innerHTML = `<i class="fas fa-eye"></i> ${video.views || '1K views'}`;
+            duration.innerHTML = `<i class="fas fa-clock"></i> ${video.duration || '10:00'}`;
             difficulty.innerHTML = `<i class="fas fa-signal"></i> ${video.difficulty || 'Intermediate'}`;
-            
-            // Set iframe source
-            iframe.src = video.embedUrl || video.url;
-            
-            // Show modal
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
-            
-            console.log('🎬 Playing lesson:', video.title);
+
+            // FIX: Set video source
+            const videoSource = video.embedUrl || video.url;
+            console.log('🎥 Setting video source:', videoSource);
+            iframe.src = videoSource;
+
+            // FIX: Show modal with a small delay to ensure DOM updates
+            setTimeout(() => {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                
+                // FIX: Force browser to repaint the description
+                description.style.opacity = '0.99';
+                setTimeout(() => {
+                    description.style.opacity = '1';
+                }, 50);
+            }, 100);
+
+            console.log('✅ Video player loaded successfully');
+            console.log('📝 Description set to:', video.description);
         }
 
         function closeVideoPlayer() {
@@ -1111,12 +1290,10 @@
             
             // Hide modal
             modal.classList.remove('active');
-            document.body.style.overflow = 'auto'; // Re-enable scrolling
-            
-            console.log('⏹️ Video player closed');
+            document.body.style.overflow = 'auto';
         }
 
-        // FIXED CATEGORY FILTERING - NO DUPLICATES
+        // Category filtering
         function displayVideosByCategory(category = 'new') {
             console.log('🎯 Displaying lessons for category:', category);
             
@@ -1128,10 +1305,9 @@
             
             let filteredVideos = [];
             
-            // FIXED: Proper category filtering with no duplicates
             if (category === 'new') {
-                // Show first 20 lessons for new releases (regardless of category)
-                filteredVideos = allVideos.slice(0, 20);
+                // Show last 20 lessons for new releases
+                filteredVideos = allVideos.slice(-20).reverse();
             } else if (category === 'maths') {
                 // Only show lessons with category 'maths'
                 filteredVideos = allVideos.filter(v => 
@@ -1143,6 +1319,9 @@
                     v.category && v.category.toLowerCase() === 'physics'
                 );
             }
+            
+            // Store the currently displayed videos
+            currentDisplayedVideos = filteredVideos;
             
             const container = document.getElementById(category + 'Container');
             
@@ -1159,8 +1338,7 @@
             } else {
                 let html = '';
                 filteredVideos.forEach((video, index) => {
-                    const videoIndex = allVideos.findIndex(v => v.url === video.url);
-                    html += createVideoCard(video, videoIndex);
+                    html += createVideoCard(video, index);
                 });
                 container.innerHTML = html;
             }
@@ -1189,6 +1367,9 @@
                     (video.difficulty && video.difficulty.toLowerCase().includes(searchTerm.toLowerCase()))
                 );
                 
+                // Store the currently displayed videos
+                currentDisplayedVideos = filteredVideos;
+                
                 const activePage = document.querySelector('.nav-link.active').getAttribute('data-page');
                 const container = document.getElementById(activePage + 'Container');
                 
@@ -1197,25 +1378,14 @@
                 } else {
                     let html = '';
                     filteredVideos.forEach((video, index) => {
-                        const videoIndex = allVideos.findIndex(v => v.url === video.url);
-                        html += createVideoCard(video, videoIndex);
+                        html += createVideoCard(video, index);
                     });
                     container.innerHTML = html;
                 }
-                
-                // Close mobile search after searching
-                document.getElementById('mobileSearchOverlay').classList.remove('active');
             }
             
             searchInput.addEventListener('input', (e) => handleSearch(e.target.value));
             mobileSearchInput.addEventListener('input', (e) => handleSearch(e.target.value));
-            
-            // Handle Enter key in mobile search
-            mobileSearchInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    handleSearch(e.target.value);
-                }
-            });
         }
 
         // Desktop navigation
@@ -1245,11 +1415,21 @@
 
         // Initialize everything
         async function init() {
-            console.log('🔧 Initializing EduZone Lk...');
+            console.log('🔧 Initializing EduZone LK...');
             
             // Setup mobile buttons
             document.getElementById('mobileMenuBtn').addEventListener('click', toggleMobileMenu);
             document.getElementById('mobileSearchBtn').addEventListener('click', toggleMobileSearch);
+            
+            // Setup mobile search close button
+            document.getElementById('mobileSearchClose').addEventListener('click', function() {
+                document.getElementById('mobileSearchOverlay').classList.remove('active');
+                document.getElementById('mobileSearchInput').value = '';
+                
+                // Reset to current category
+                const activePage = document.querySelector('.nav-link.active').getAttribute('data-page');
+                displayVideosByCategory(activePage);
+            });
             
             // Setup video player close button
             document.getElementById('playerClose').addEventListener('click', closeVideoPlayer);
@@ -1287,21 +1467,27 @@
                 const searchOverlay = document.getElementById('mobileSearchOverlay');
                 const menuBtn = document.getElementById('mobileMenuBtn');
                 const searchBtn = document.getElementById('mobileSearchBtn');
+                const mobileSearchInput = document.getElementById('mobileSearchInput');
+                const mobileSearchClose = document.getElementById('mobileSearchClose');
                 
+                // Check if click is outside mobile menu
                 if (menuOverlay.classList.contains('active') && 
                     !menuOverlay.contains(e.target) && 
                     !menuBtn.contains(e.target)) {
                     menuOverlay.classList.remove('active');
                 }
                 
+                // Check if click is outside mobile search (excluding the input and close button)
                 if (searchOverlay.classList.contains('active') && 
                     !searchOverlay.contains(e.target) && 
-                    !searchBtn.contains(e.target)) {
+                    !searchBtn.contains(e.target) &&
+                    e.target !== mobileSearchInput &&
+                    e.target !== mobileSearchClose) {
                     searchOverlay.classList.remove('active');
                 }
             });
             
-            // Load videos from Google Sheets
+            // Load videos from Google Sheets FIRST
             console.log('📥 Fetching educational content from your database...');
             allVideos = await fetchVideosFromSheets();
             
@@ -1317,7 +1503,7 @@
             } else {
                 console.log('❌ No lessons loaded from database');
                 
-                // Show sample data as fallback with proper categories
+                // Show sample data as fallback
                 const sampleVideos = [
                     {
                         title: "Introduction to Calculus - Limits & Continuity",
@@ -1333,57 +1519,13 @@
                     {
                         title: "Newton's Laws of Motion - Physics Fundamentals",
                         description: "Comprehensive overview of Newton's three laws of motion with practical examples and problem-solving techniques.",
-                        url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                        url: "https://www.youtube.com/embed/WFr2WgN9_xE",
                         thumbnail: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=500&h=300&fit=crop",
                         duration: "22:15",
                         views: "3.8K views",
                         tags: "newton,laws,motion,mechanics",
                         category: "physics",
                         difficulty: "Beginner"
-                    },
-                    {
-                        title: "Trigonometric Functions & Identities",
-                        description: "Master trigonometric functions, identities, and their applications in solving complex mathematical problems.",
-                        url: "https://www.youtube.com/embed/jNQXAC9IVRw",
-                        thumbnail: "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=500&h=300&fit=crop",
-                        duration: "18:45",
-                        views: "1.9K views",
-                        tags: "trigonometry,functions,identities",
-                        category: "maths",
-                        difficulty: "Intermediate"
-                    },
-                    {
-                        title: "Electricity & Magnetism - Core Concepts",
-                        description: "Explore the fundamental principles of electricity and magnetism with real-world applications and problem sets.",
-                        url: "https://www.youtube.com/embed/L_jWHffIx5E",
-                        thumbnail: "https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=500&h=300&fit=crop",
-                        duration: "25:10",
-                        views: "4.2K views",
-                        tags: "electricity,magnetism,electromagnetism",
-                        category: "physics",
-                        difficulty: "Advanced"
-                    },
-                    {
-                        title: "Differential Equations - Solving Techniques",
-                        description: "Learn various methods to solve differential equations with step-by-step examples and practice problems.",
-                        url: "https://www.youtube.com/embed/WFr2WgN9_xE",
-                        thumbnail: "https://images.unsplash.com/photo-1589254065878-42c9da997cc6?w=500&h=300&fit=crop",
-                        duration: "28:35",
-                        views: "1.5K views",
-                        tags: "differential,equations,calculus",
-                        category: "maths",
-                        difficulty: "Advanced"
-                    },
-                    {
-                        title: "Modern Physics - Quantum Mechanics Introduction",
-                        description: "Introduction to the fascinating world of quantum mechanics and its implications in modern physics.",
-                        url: "https://www.youtube.com/embed/IGY9HPSyR6Q",
-                        thumbnail: "https://images.unsplash.com/photo-1502134249126-9f3755a50d78?w=500&h=300&fit=crop",
-                        duration: "20:50",
-                        views: "3.1K views",
-                        tags: "quantum,mechanics,modern,physics",
-                        category: "physics",
-                        difficulty: "Advanced"
                     }
                 ];
                 allVideos = sampleVideos;
@@ -1395,6 +1537,4 @@
         document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
-
 </html>
-
